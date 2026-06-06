@@ -37,3 +37,5 @@ const result = await openai.audio.transcriptions.create({
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log("Running"));
+
+console.log("API KEY exists:", !!process.env.OPENAI_API_KEY);
