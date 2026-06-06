@@ -20,10 +20,10 @@ app.post("/transcribe", upload.single("file"), async (req, res) => {
   try {
     const filePath = req.file.path;
 
-    const result = await openai.audio.transcriptions.create({
-      file: fs.createReadStream(filePath),
-      model: "gpt-4o-transcribe"
-    });
+const result = await openai.audio.transcriptions.create({
+  file: fs.createReadStream(filePath),
+  model: "whisper-1"
+});
 
     fs.unlinkSync(filePath);
 
