@@ -12,7 +12,8 @@ app.use(cors());
 app.use(express.static("public"));
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: process.env.OPENAI_API_KEY,
+  timeout: 60_000, // 🔥 避免 Render timeout
 });
 
 app.post("/transcribe", upload.single("file"), async (req, res) => {
